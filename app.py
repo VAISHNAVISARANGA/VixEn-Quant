@@ -98,10 +98,21 @@ def create_pdf_report(df_slice, metrics, inputs, figs):
 # --- PAGE CONFIGURATION ---
 st.set_page_config(page_title="VixEn Quant",page_icon="🦊", layout="wide")
 
+import os
+
 @st.cache_resource
 def load_production_assets():
-    """Load the saved model, features, and historical stats."""
-    return joblib.load("trading_ensemble_prod.pkl")
+    # Get the absolute path to the folder this script is in
+    base_path = os.path.dirname(__file__)
+    model_path = os.path.join(base_path, "trading_ensemble_prod.pkl")
+    
+    if not os.path.exists(model_path):
+        # This will print in your Streamlit logs so you can debug
+        st.error(f"Critical Error: {model_path} not found!")
+        st.write("Files currently in directory:", os.listdir(base_path))
+        st.stop()
+        
+    return joblib.load(model_path)
 
 @st.cache_data
 def get_processed_data():

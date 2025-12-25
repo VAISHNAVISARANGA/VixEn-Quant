@@ -44,7 +44,6 @@ coverage.xml
 *.sqlite3
 
 # Model and data
-*.pkl
 *.h5
 *.ckpt
 
