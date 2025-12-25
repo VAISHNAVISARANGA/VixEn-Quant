@@ -144,14 +144,37 @@ st.sidebar.selectbox("Market Ticker", options=["SPY"], index=0, help="Fixed to S
 
 # 2. Date Selection (Start and End Inputs)
 st.sidebar.subheader("Analysis Period")
-min_date = featured_data.index.min().to_pydatetime()
-max_date = datetime.today().date()
-
-default_start = max_date - timedelta(days=365*5)
+# 1. Safety Check: Ensure data exists before trying to find the min/max date
+if featured_data is not None and not featured_data.empty:
+    # Convert Pandas Timestamp to standard Python date using .date()
+    min_date = featured_data.index.min().date()
+    
+    # max_date should be today's date
+    max_date = datetime.today().date()
+    
+    # Ensure default_start (5 years ago) is a date object and not before min_date
+    five_years_ago = max_date - timedelta(days=365*5)
+    default_start = max(min_date, five_years_ago)
+else:
+    st.error("⚠️ Data Fetch Failed. Check your data_manager.py and internet connection.")
+    st.stop()
 
 col_start, col_end = st.sidebar.columns(2)
-start_date = col_start.date_input("Start Date", value=default_start, min_value=min_date, max_value=max_date)
-end_date = col_end.date_input("End Date", value=max_date, min_value=min_date, max_value=max_date)
+
+# 2. Use the sanitized date objects in the widget
+start_date = col_start.date_input(
+    "Start Date", 
+    value=default_start, 
+    min_value=min_date, 
+    max_value=max_date
+)
+
+end_date = col_end.date_input(
+    "End Date", 
+    value=max_date, 
+    min_value=min_date, 
+    max_value=max_date
+)
 
 # 3. Risk Tolerance (VIX Threshold)
 st.sidebar.subheader("Risk Management")
