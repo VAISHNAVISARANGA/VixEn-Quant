@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.market/
+market/
+*.venv/
+
+# Distribution
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage
+.pytest_cache/
+.coverage
+coverage.xml
+
+# Jupyter
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+
+# IDEs
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# Model and data
+*.pkl
+*.h5
+*.ckpt
+
+# OS generated files
+Thumbs.db
+
+# Streamlit
+.streamlit/
+
+# Temporary files
+*.tmp
+*~
+
+# Ignore compiled Python extensions
+*.so
+*.pyd
+
+# Secrets
+.env
+credentials.json
+
+# Other
+*.egg
+
