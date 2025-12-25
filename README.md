@@ -57,12 +57,10 @@ Command Prompt:
 ```cmd
 market\Scripts\activate.bat
 ```
-Bash
-
+```
 pip install -r requirements.txt
-Run the App:
-
-Bash
-
+```
+```Run the App:
 streamlit run app.py
+```
 Disclaimer: VixEn Quant is an educational tool and does not constitute financial advice. Past performance is not indicative of future results.
