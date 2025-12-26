@@ -15,6 +15,8 @@ import pandas_market_calendars as mcal
 from datetime import datetime
 import pytz
 import streamlit as st
+import sklearn
+print("SKLEARN VERSION:", sklearn.__version__)
 
 def get_automated_market_status():
     # 1. Load the NYSE Calendar
