@@ -1,20 +1,25 @@
+# Data & Math
 pandas>=2.0.0
 numpy
 scikit-learn
-matplotlib
-plotly
-streamlit
-yfinance>=0.2.50
 xgboost
 lightgbm
 optuna
-joblib
-pandas_market_calendars
-pytz
-fpdf
-# Essential for Plotly-to-PDF image conversion
-kaleido==0.2.1
-# Essential for stable web sessions
+
+# Data Fetching (Crucial Updates)
+yfinance>=0.2.54
 requests
 urllib3
-requests_cache>=0.9.8
+requests-cache>=0.9.8
+
+# Visualization & Reporting
+matplotlib
+plotly
+streamlit
+kaleido==0.2.1
+fpdf
+
+# Time & Market Logic
+pandas_market_calendars
+pytz
+joblib
