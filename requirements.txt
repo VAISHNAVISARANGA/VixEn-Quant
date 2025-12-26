@@ -1,7 +1,7 @@
 # Data & Math
 pandas>=2.0.0
 numpy
-scikit-learn
+scikit-learn==1.7.2
 xgboost
 lightgbm
 optuna
