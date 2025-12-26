@@ -17,3 +17,4 @@ kaleido==0.2.1
 # Essential for stable web sessions
 requests
 urllib3
+requests_cache>=0.9.8
