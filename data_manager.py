@@ -1,4 +1,4 @@
-import yfinance as yf
+
 import yfinance as yf
 import requests_cache
 from requests import Session
@@ -18,7 +18,7 @@ def get_stable_session():
 
 
 def fetch_market_data(ticker="SPY", start_date=None, end_date=None, period="35y"):
-    session= get_stable_session
+    session= get_stable_session()
     if start_date and end_date:
         raw_data = yf.download([ticker, "^VIX"], start=start_date, end=end_date, session=session, progress=False)
     else:
