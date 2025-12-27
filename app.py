@@ -4,6 +4,7 @@ import numpy as np
 import joblib
 import plotly.express as px
 from datetime import datetime, timedelta
+from streamlit_autorefresh import st_autorefresh
 
 # Import your backend logic (ensure these files are in the same directory)
 from data_manager import fetch_market_data
@@ -134,7 +135,7 @@ except Exception as e:
 # --- SIDEBAR INPUTS ---
 
 st.sidebar.markdown("<h3 style='font-size:40px;'>🛠️ Strategy Controls</h3>", unsafe_allow_html=True)
-st.autorefresh(interval=1000, key="market_timer")
+st_autorefresh(interval=1000, key="market_timer")
 status, countdown = get_automated_market_status()
 
 
