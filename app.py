@@ -135,8 +135,8 @@ except Exception as e:
 # --- SIDEBAR INPUTS ---
 
 st.sidebar.markdown("<h3 style='font-size:40px;'>🛠️ Strategy Controls</h3>", unsafe_allow_html=True)
-st_autorefresh(interval=1000, key="market_timer")
 status, countdown = get_automated_market_status()
+
 
 
 st.sidebar.subheader("🕒 Live Market Clock")
