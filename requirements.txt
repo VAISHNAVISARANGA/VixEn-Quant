@@ -23,4 +23,4 @@ fpdf
 pandas_market_calendars
 pytz
 joblib
-streamlit-autorefresh
+streamlit-autorefresh==1.0.1
