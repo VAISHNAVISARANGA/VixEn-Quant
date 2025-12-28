@@ -4,7 +4,6 @@ import numpy as np
 import joblib
 import plotly.express as px
 from datetime import datetime, timedelta
-from streamlit_autorefresh import st_autorefresh
 
 # Import your backend logic (ensure these files are in the same directory)
 from data_manager import fetch_market_data
