@@ -1,14 +1,16 @@
-#🦊 VixEn Quant: Volatility-Aware Ensemble Intelligence
+<h1>🦊 VixEn Quant: Volatility-Aware Ensemble Intelligence</h1>
+
+
 VixEn Quant is a high-performance algorithmic trading dashboard that combines Ensemble Machine Learning (XGBoost + LightGBM) with a dynamic VIX Volatility Shield. It is designed to navigate the US Equity markets (SPY) by prioritizing capital preservation during high-volatility regimes while capturing alpha during stable trends.
 
-🚀 Core Strategy: "The VixEn Logic"
+## 🚀 Core Strategy: "The VixEn Logic"
 The system operates on a dual-filter architecture to decide between BUY (Long) and CASH (Protective) positions:
 
 AI Ensemble (The Brain): An ensemble of XGBoost and LightGBM models analyzes over 20 technical indicators (RSI, MACD, Moving Averages, etc.) to predict the probability of a positive return for the next trading day.
 
 VIX Filter (The Shield): A real-time volatility "circuit breaker." If the CBOE Volatility Index (VIX) exceeds a user-defined threshold (e.g., 30), the strategy forces a move to cash, regardless of the AI's bullishness.
 
-🛠️ Key Features
+## 🛠️ Key Features
 Live Market Pulse: Real-time US market clock with automatic holiday and early-close detection (optimized for global users in time zones like IST).
 
 Adaptive Backtesting: Interactive date sliders and risk-tolerance controls to test the strategy against 30+ years of historical market data.
@@ -19,12 +21,12 @@ Automated Intelligence Reports: Generates professional-grade PDF reports includi
 
 Performance Metrics: Real-time calculation of Annualized Sharpe Ratio, CAGR, and Maximum Drawdown.
 
-📊 Performance Benchmark
+## 📊 Performance Benchmark
 Benchmark: S&P 500 (SPY)
 
 Strategy Goal: Outperform the benchmark on a risk-adjusted basis (Higher Sharpe Ratio) by significantly reducing drawdowns during market crashes (2008, 2020, 2022).
 
-📦 Tech Stack
+## 📦 Tech Stack
 Language: Python
 
 Framework: Streamlit (Web Dashboard)
@@ -37,7 +39,7 @@ Visualization: Plotly Express
 
 Reporting: FPDF, Kaleido
 
-🚦 Getting Started
+## 🚦 Getting Started
 Clone the Repo:
 
 Bash
