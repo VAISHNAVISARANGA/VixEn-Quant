@@ -1,4 +1,4 @@
-🦊 VixEn Quant: Volatility-Aware Ensemble Intelligence
+#🦊 VixEn Quant: Volatility-Aware Ensemble Intelligence
 VixEn Quant is a high-performance algorithmic trading dashboard that combines Ensemble Machine Learning (XGBoost + LightGBM) with a dynamic VIX Volatility Shield. It is designed to navigate the US Equity markets (SPY) by prioritizing capital preservation during high-volatility regimes while capturing alpha during stable trends.
 
 🚀 Core Strategy: "The VixEn Logic"
