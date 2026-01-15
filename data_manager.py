@@ -17,11 +17,11 @@ def fetch_market_data(ticker="SPY", period="35y", start_date=None, end_date=None
 
         df = raw.xs(ticker, level=1, axis=1)
         vix = raw.xs("^VIX", level=1, axis=1)["Close"]
-        df["VIX"] = vix.ffill()
+        df.loc[:,"VIX"] = vix.ffill()
     except:
         df = pd.read_csv("spy.csv", parse_dates=["Date"], index_col="Date")
         vix = pd.read_csv("vix.csv", parse_dates=["Date"], index_col="Date")["Close"]
-        df["VIX"] = vix.reindex(df.index).ffill()
+        df.loc[:,"VIX"] = vix.reindex(df.index).ffill()
 
-    df["VIX_Safe"] = (df["VIX"] < 25).astype(int)
+    df[:,"VIX_Safe"] = (df["VIX"] < 25).astype(int)
     return df.dropna()
