@@ -23,8 +23,21 @@ def fetch_market_data(ticker="SPY", period="35y", start_date=None, end_date=None
         df.loc[:, "VIX"] = vix.reindex(df.index).ffill()
 
     except Exception:
-        df = pd.read_csv("spy.csv", parse_dates=["Date"], index_col="Date")
-        vix = pd.read_csv("vix.csv", parse_dates=["Date"], index_col="Date")["Close"]
+        df = pd.read_csv(
+            "spy.csv",
+            skiprows=3,
+            names= ["Date", "Close", "High", "Low", "Open", "Volume"],
+            parse_dates=["Date"],
+            index_col="Date"
+        )
+        vix = pd.read_csv(
+            "vix.csv",
+            skiprows=3,
+            names= ["Date", "Close", "High", "Low", "Open", "Volume"],
+            parse_dates=["Date"],
+            index_col="Date"
+        )["Close"]
+
         df.loc[:, "VIX"] = vix.reindex(df.index).ffill()
 
     df.loc[:, "VIX_Safe"] = (df["VIX"] < 25).astype(int)
