@@ -1,27 +1,34 @@
-
-
 import yfinance as yf
 import pandas as pd
 import streamlit as st
 
-@st.cache_data(ttl=3600)
-def fetch_market_data(ticker="SPY", period="35y", start_date=None, end_date=None):
+@st.cache_data(ttl=3600, show_spinner=False)
+def fetch_market_data(ticker, start_date, end_date):
     try:
-        if start_date and end_date:
-            raw = yf.download([ticker, "^VIX"], start=start_date, end=end_date, progress=False)
-        else:
-            raw = yf.download([ticker, "^VIX"], period=period, progress=False)
+        spy = yf.download(
+            ticker,
+            start=start_date,
+            end=end_date,
+            interval="1d",
+            prepost=False,
+            progress=False
+        )
 
-        if raw.empty:
-            raise Exception
+        vix = yf.download(
+            "^VIX",
+            start=start_date,
+            end=end_date,
+            interval="1d",
+            prepost=False,
+            progress=False
+        )["Close"]
 
-        df = raw.xs(ticker, level=1, axis=1)
-        vix = raw.xs("^VIX", level=1, axis=1)["Close"]
-        df.loc[:,"VIX"] = vix.ffill()
+        spy.loc[:, "VIX"] = vix.reindex(spy.index).ffill()
+
     except:
-        df = pd.read_csv("spy.csv", parse_dates=["Date"], index_col="Date")
+        spy = pd.read_csv("spy.csv", parse_dates=["Date"], index_col="Date")
         vix = pd.read_csv("vix.csv", parse_dates=["Date"], index_col="Date")["Close"]
-        df.loc[:,"VIX"] = vix.reindex(df.index).ffill()
+        spy.loc[:, "VIX"] = vix.reindex(spy.index).ffill()
 
-    df[:,"VIX_Safe"] = (df["VIX"] < 25).astype(int)
-    return df.dropna()
+    spy.loc[:, "VIX_Safe"] = (spy["VIX"] < 25).astype(int)
+    return spy.dropna()
