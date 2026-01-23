@@ -17,6 +17,7 @@ matplotlib
 plotly
 streamlit
 kaleido
+altair
 fpdf
 
 # Time & Market Logic
