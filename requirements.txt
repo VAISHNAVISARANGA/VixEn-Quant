@@ -17,7 +17,7 @@ matplotlib
 plotly
 streamlit==1.30.0
 altair==4.2.2
-kaleido==0.2.1
+kaleido>=1.0.0
 fpdf
 
 # Time & Market Logic
