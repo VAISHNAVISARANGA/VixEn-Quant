@@ -15,7 +15,8 @@ requests-cache>=0.9.8
 # Visualization & Reporting
 matplotlib
 plotly
-streamlit
+streamlit==1.30.0
+altair==4.2.2
 kaleido==0.2.1
 fpdf
 
