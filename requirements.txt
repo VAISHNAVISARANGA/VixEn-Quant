@@ -1,26 +1,25 @@
 # Data & Math
 pandas>=2.0.0
-numpy
-scikit-learn==1.7.2
-xgboost
-lightgbm
-optuna
+numpy>=1.21.0
+scikit-learn>=1.0.0
+xgboost>=1.6.0
+lightgbm>=3.3.0
+optuna>=3.0.0
 
-# Data Fetching (Crucial Updates)
+# Data Fetching
 yfinance>=0.2.54
-requests
-urllib3
+requests>=2.25.0
+urllib3>=1.26.0
 requests-cache>=0.9.8
 
 # Visualization & Reporting
-matplotlib
-plotly
-streamlit==1.30.0
-altair==4.2.2
-kaleido
-fpdf
+matplotlib>=3.3.0
+plotly>=5.0.0
+streamlit>=1.28.0
+kaleido==0.2.1
+fpdf>=1.7.0
 
 # Time & Market Logic
-pandas_market_calendars
-pytz
-joblib
+pandas_market_calendars>=4.0.0
+pytz>=2021.0
+joblib>=1.0.0
